@@ -1,0 +1,99 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #111;
+    color: #eee;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+#presetSelector {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #222;
+    color: #eee;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 10px 40px 10px 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    outline: none;
+    background-image: linear-gradient(135deg, #1e90ff, #1e90ff 50%, transparent 50%),
+    linear-gradient(45deg, #1e90ff, #1e90ff 50%, transparent 50%);
+    background-repeat: no-repeat;
+    background-position: right 12px center, right 8px center;
+    background-size: 8px 8px, 8px 8px;
+}
+
+#presetSelector:hover {
+    background-color: #2a2a2a;
+    border-color: #1e90ff;
+    box-shadow: 0 0 5px #1e90ff;
+}
+
+#presetSelector:focus {
+    border-color: #1e90ff;
+    box-shadow: 0 0 6px #1e90ff;
+}
+
+#presetSelector option {
+    background-color: #111;
+    color: #eee;
+}
+
+#pad-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: repeat(4, 100px);
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.pad {
+    background-color: #333;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 0.9rem;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.pad::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 5px;
+    width: var(--progress, 0%);
+    background-color: #1e90ff;
+    transition: width 0.1s linear;
+}
+
+.pad.loading {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.pad.loaded {
+    background-color: #1e90ff;
+}
+
+.pad:hover {
+    transform: scale(1.05);
+}
+
+#waveform {
+    border: 1px solid #444;
+    width: 400px;
+    height: 150px;
+    margin-top: 10px;
+}
